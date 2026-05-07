@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", Georgia, serif;
+    --font-sans: "Geist", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+    /* Warm editorial palette: off-white paper, deep ink, single amber accent */
+    --background: 40 30% 97%;        /* #FAF8F2 */
+    --foreground: 25 15% 12%;        /* #221E18 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 15% 12%;
+
+    --primary: 25 15% 12%;           /* deep ink */
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 40 20% 92%;         /* warm grey */
+    --secondary-foreground: 25 15% 22%;
+
+    --muted: 40 20% 94%;
+    --muted-foreground: 25 8% 42%;
+
+    --accent: 22 85% 47%;            /* warm amber/terracotta */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 86%;
+    --input: 40 15% 86%;
+    --ring: 22 85% 47%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 25 12% 9%;
+    --foreground: 40 25% 92%;
+
+    --card: 25 12% 12%;
+    --card-foreground: 40 25% 92%;
+
+    --primary: 40 25% 92%;
+    --primary-foreground: 25 12% 9%;
+
+    --secondary: 25 10% 18%;
+    --secondary-foreground: 40 25% 92%;
+
+    --muted: 25 10% 16%;
+    --muted-foreground: 40 10% 62%;
+
+    --accent: 22 80% 55%;
+    --accent-foreground: 25 12% 9%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 10% 22%;
+    --input: 25 10% 22%;
+    --ring: 22 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+/* Tasteful scrollbar styling */
+@layer utilities {
+  .scroll-area::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-area::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .scroll-area::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
